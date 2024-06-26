@@ -1,0 +1,9 @@
+body {
+    background: paleturquoise;
+    margin: 5%;
+}
+
+.xyz {
+    border: 5px solid red;
+    /* background-color: tomato; */
+}
