@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("monitor.urls")),
     path('auth/',include("authenticate.urls")),
-    path('user_activity/',include("userActivity.urls"))
+    path('user_activity/',include("userActivity.urls")),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

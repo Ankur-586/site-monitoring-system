@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'monitor',
     'authenticate',
     'userActivity',
+
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Auth User Model [appname.user]
 AUTH_USER_MODEL = "authenticate.CustomUser"
+
