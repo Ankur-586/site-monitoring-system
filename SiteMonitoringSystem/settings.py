@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'monitor',
-    'auth',
+    'authenticate',
+    'userActivity',
 ]
 
 MIDDLEWARE = [
@@ -136,4 +137,4 @@ MEDIA_ROOT = BASE_DIR/'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Auth User Model [appname.user]
-# AUTH_USER_MODEL = "Auth.MyUser"
+AUTH_USER_MODEL = "authenticate.CustomUser"
