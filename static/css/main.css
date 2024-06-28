@@ -1,9 +1,17 @@
 body {
     background: paleturquoise;
-    margin: 5%;
 }
 
 .xyz {
+    margin: 2%;
     border: 5px solid red;
     /* background-color: tomato; */
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }

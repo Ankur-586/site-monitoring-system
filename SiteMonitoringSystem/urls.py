@@ -24,6 +24,7 @@ urlpatterns = [
     path('',include("monitor.urls")),
     path('auth/',include("authenticate.urls")),
     path('user_activity/',include("userActivity.urls")),
+    path('custome-cms/',include("custome_cms.urls")),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
