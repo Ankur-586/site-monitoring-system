@@ -10,5 +10,6 @@ class UserActivity(models.Model):
         return f"{self.user.username} - {self.last_active}"
 
 
-# how to determine which users are currently logged in in jdango
+# how to determine which users are currently logged in django
+# how to determine which ipaddress currently visited mysite in django
 # how to determine which user made the last changes in django app

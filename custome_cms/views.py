@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def cust_cms(request):
-    return render(request, 'table.html')
+def index(request):
+    return render(request, 'home/index.html')
