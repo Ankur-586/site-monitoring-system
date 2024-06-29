@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import CustomUser
+from django.contrib.sessions.models import Session
 
 class UserAdmin(BaseUserAdmin):
     model = CustomUser
@@ -32,3 +33,5 @@ class UserAdmin(BaseUserAdmin):
 
 # Register the CustomUser model with the UserAdmin class
 admin.site.register(CustomUser, UserAdmin)
+
+admin.site.register(Session)

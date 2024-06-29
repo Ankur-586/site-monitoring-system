@@ -3,5 +3,7 @@ from authenticate.models import CustomUser
 
 def home(request):
     for e in CustomUser.objects.all():
-        print(e.full_name)
-    return render(request, 'home.html')
+        context = {
+            'full_name' : e.full_name
+        }
+    return render(request, 'home.html',context)
