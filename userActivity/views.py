@@ -5,7 +5,7 @@ from authenticate.models import CustomUser
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
-@login_required
+# @login_required
 def get_current_logged_in_users(request):
     '''
     This is working fine
@@ -23,7 +23,7 @@ def get_current_logged_in_users(request):
     users = CustomUser.objects.filter(id__in=user_id_list)
     # Prepare response
     all_users = ' | '.join([user.full_name for user in users])
-    return all_users
+    return HttpResponse(all_users)
 
 def get_client_ip(request):
     # Get IP address of the client

@@ -1,5 +1,24 @@
 {% extends "base.html" %} {% block content %}
 
+
+<div class="container">
+  <div class="row height d-flex justify-content-center align-items-center">
+    <div class="col-md-8">
+      <div class="search">
+        <i class="fa fa-search"></i>
+        <!-- Corrected form tag -->
+        <form id="search-form" method="post">
+          {% csrf_token %}
+          <input type="text" name='website-url' id="website-url-input" class="form-control" placeholder="Search for your desired website"/>
+          <!-- Removed onclick attribute and used jQuery event handler -->
+          <button type="button" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if request.user.is_authenticated %}
 <div class="container-fluid">
   <div class="row justify-content-md-center pt-5">
     <div class="col-md-auto">
@@ -19,21 +38,43 @@
             <td>Otto</td>
             <td>@mdo</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+{% endif %} {% endblock content %} 
+{% block scripts %}
+<script>
 
-{% endblock content %}
+$("button").click(function(event) {
+  event.preventDefault(); // Prevent default form submission
+  
+  var inputValue = $("#website-url-input").val(); // Get input value
+  console.log("Entered value:", inputValue);
+  
+  // Retrieve CSRF token from the form
+  var csrftoken = $('input[name="csrfmiddlewaretoken"]').val();
+
+  // AJAX request using jQuery POST method
+  $.ajax({
+      url: "http://127.0.0.1:8000/search_website/",
+      type: "POST",
+      data: {
+          'website-url': inputValue,
+          csrfmiddlewaretoken: csrftoken  // Include CSRF token
+      },
+      success: function(data, status) {
+        console.log(data, status)
+          // alert("Data: " + data + "\nStatus: " + status);
+          // Optionally update frontend UI with the response
+      },
+      error: function(xhr, status, error) {
+        console.log(error)
+          //alert("Error: " + error);
+      }
+  });
+});
+</script>
+{% endblock %}
+
